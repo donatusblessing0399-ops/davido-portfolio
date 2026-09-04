@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAVIDO | The King of Afrobeats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #e5e5e5;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Premium Gold Accent */
+        .gold-accent {
+            color: #d4af37;
+        }
+
+        .gold-border {
+            border-color: #d4af37;
+        }
+
+        .gold-bg {
+            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        @keyframes counterAnimation {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .animate-slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+        }
+
+        .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .animate-counter {
+            animation: counterAnimation 0.8s ease-out forwards;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 50%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #d4af37;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.4s ease-out;
+            font-weight: 300;
+        }
+
+        /* Counter Cards */
+        .counter-card {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .counter-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .counter-number {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            letter-spacing: 2px;
+        }
+
+        /* CTA Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37 0%, #f0e68c 100%);
+            color: #0a0a0a;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #d4af37;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            letter-spacing: 3px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #d4af37;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #d4af37;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #a0a0a0;
+            margin-bottom: 60px;
+            max-width: 600px;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4af37 0%, transparent 100%);
+            margin-bottom: 30px;
+        }
+
+        /* Biography Section */
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .bio-text {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #c0c0c0;
+        }
+
+        .bio-text p {
+            margin-bottom: 20px;
+        }
+
+        .bio-highlight {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .bio-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #d4af37;
+        }
+
+        /* Discography Section */
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .album-card {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .album-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.25);
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #d4af37;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .album-cover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+            transition: all 0.4s ease;
+        }
+
+        .album-card:hover .album-cover::after {
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.3) 100%);
+        }
+
+        .album-info {
+            padding: 25px;
+        }
+
+        .album-year {
+            font-size: 0.85rem;
+            color: #d4af37;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .album-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .album-tracks {
+            font-size: 0.9rem;
+            color: #808080;
+            line-height: 1.6;
+        }
+
+        /* Milestones Section */
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .milestone-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .milestone-card:hover {
+            border-color: #d4af37;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .milestone-icon {
+            font-size: 3.5rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+
+        .milestone-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .milestone-description {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .award-card {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .award-card:hover {
+            border-color: #d4af37;
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.25);
+        }
+
+        .award-icon {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        .award-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .award-detail {
+            font-size: 0.9rem;
+            color: #808080;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+
+        .footer-section a, .footer-section p {
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #d4af37;
+            color: #0a0a0a;
+            transform: translateY(-5px);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #d4af37;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            color: #e5e5e5;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            color: #606060;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+
+            .bio-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .bio-image {
+                height: 300px;
+            }
+
+            .hero-title {
+                letter-spacing: 4px;
+            }
+
+            .footer-content {
+                gap: 30px;
+            }
+        }
+
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth Page Transition */
+        html {
+            scroll-padding-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-black gold-accent tracking-widest">DAVIDO</div>
+            <div class="hidden md:flex gap-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition">HOME</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition">ABOUT</a>
+                <a href="#discography" class="text-gray-300 hover:text-white transition">MUSIC</a>
+                <a href="#milestones" class="text-gray-300 hover:text-white transition">MILESTONES</a>
+                <a href="#awards" class="text-gray-300 hover:text-white transition">AWARDS</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition">CONTACT</a>
+            </div>
+            <button class="md:hidden text-xl gold-accent" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">DAVIDO</h1>
+            <p class="hero-subtitle">THE KING OF AFROBEATS / 001</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 mt-20">
+                <div class="counter-card animate-counter">
+                    <div class="counter-number" id="counter1">2B+</div>
+                    <div class="counter-label">GLOBAL STREAMS</div>
+                </div>
+                <div class="counter-card animate-counter" style="animation-delay: 0.2s;">
+                    <div class="counter-number" id="counter2">1B+</div>
+                    <div class="counter-label">VIDEO VIEWS</div>
+                </div>
+                <div class="counter-card animate-counter" style="animation-delay: 0.4s;">
+                    <div class="counter-number" id="counter3">30+</div>
+                    <div class="counter-label">INTERNATIONAL AWARDS</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button class="btn-primary" onclick="scrollToSection('discography')">
+                    LISTEN TO ORIADÉ
+                </button>
+                <button class="btn-secondary" onclick="alert('Redirecting to latest video...')">
+                    WATCH LATEST VIDEO
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-divider"></div>
+            <h2 class="section-title">THE JOURNEY</h2>
+            <p class="section-subtitle">From Atlanta to the World Stage</p>
+
+            <div class="bio-content">
+                <div class="scroll-animate">
+                    <div class="bio-text">
+                        <p>
+                            Born in <span class="bio-highlight">Atlanta</span> and raised in the vibrant streets of <span class="bio-highlight">Lagos, Nigeria</span>, Davido has orchestrated a musical revolution that transcends continents and cultures. Over a legendary <span class="bio-highlight">15-year career</span>, he has single-handedly redefined the global perception of African music.
+                        </p>
+                        <p>
+                            As the founder and visionary behind <span class="bio-highlight">Davido Music Worldwide (DMW)</span> record label—established in 2016—he has nurtured and elevated emerging talents while cementing his own legacy as an unstoppable force in the industry.
+                        </p>
+                        <p>
+                            His guiding philosophy, <span class="bio-highlight">"We Rise by Lifting Others,"</span> reflects a commitment to collective growth and empowerment. Every collaboration, every feature, and every release serves as a testament to his belief that greatness is amplified when shared.
+                        </p>
+                        <p>
+                            Davido isn't just a musician—he's a cultural ambassador, a tastemaker, and a visionary who continues to shape the sound and spirit of a generation.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="bio-image">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discography Section -->
+    <section id="discography" class="bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-divider"></div>
+            <h2 class="section-title">DISCOGRAPHY</h2>
+            <p class="section-subtitle">Iconic Albums That Redefined African Music</p>
+
+            <div class="album-grid">
+                <!-- ORIADÉ -->
+                <div class="album-card scroll-animate">
+                    <div class="album-cover">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-year">2024 • LATEST</div>
+                        <div class="album-title">ORIADÉ</div>
+                        <div class="album-tracks">
+                            Featuring:<br>
+                            • I Know Who I Be<br>
+                            • Awé (Dance)<br>
+                            • Global Anthem
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeless -->
+                <div class="album-card scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="album-cover">
+                        <i class="fas fa-vinyl"></i>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-year">2023 • HISTORIC</div>
+                        <div class="album-title">TIMELESS</div>
+                        <div class="album-tracks">
+                            Biggest African album<br>
+                            in Apple Music history<br>
+                            A Grammy-contending masterpiece
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A Better Time -->
+                <div class="album-card scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="album-cover">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-year">2020 • ESSENTIAL</div>
+                        <div class="album-title">A BETTER TIME</div>
+                        <div class="album-tracks">
+                            Featuring:<br>
+                            • Risky (Remix)<br>
+                            • Fall<br>
+                            • Joh
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A Good Time -->
+                <div class="album-card scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="album-cover">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-year">2019 • CLASSIC</div>
+                        <div class="album-title">A GOOD TIME</div>
+                        <div class="album-tracks">
+                            Featuring:<br>
+                            • Essence (ft. Wizkid)<br>
+                            • Blow My Mind<br>
+                            • Assurance
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Omo Baba Olowo -->
+                <div class="album-card scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="album-cover">
+                        <i class="fas fa-vinyl"></i>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-year">2012 • DEBUT</div>
+                        <div class="album-title">OMO BABA OLOWO</div>
+                        <div class="album-tracks">
+                            The beginning of<br>
+                            a legendary journey<br>
+                            That changed everything
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deluxe Edition -->
+                <div class="album-card scroll-animate" style="animation-delay: 0.5s;">
+                    <div class="album-cover">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="album-info">
+                        <div class="album-year">2022 • DELUXE</div>
+                        <div class="album-title">PLATINUM COLLECTION</div>
+                        <div class="album-tracks">
+                            Best of Davido<br>
+                            Fan-favorite remixes<br>
+                            Unreleased tracks
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section id="milestones" class="bg-black">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-divider"></div>
+            <h2 class="section-title">MILESTONES & GLOBAL TOURS</h2>
+            <p class="section-subtitle">Defining Moments in a Global Career</p>
+
+            <div class="milestone-grid">
+                <!-- Coachella -->
+                <div class="milestone-card scroll-animate">
+                    <div class="milestone-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="milestone-title">COACHELLA 2023</div>
+                    <div class="milestone-description">
+                        Historic solo debut set commanding the world's biggest festival stage. A defining moment proving African artistry's dominance on the global stage.
+                    </div>
+                </div>
+
+                <!-- Mercedes Maybach -->
+                <div class="milestone-card scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="milestone-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="milestone-title">2026 MERCEDES-MAYBACH SL 680</div>
+                    <div class="milestone-description">
+                        First African artist to acquire the exclusive Monogram Edition. A statement of luxury, influence, and global cultural impact.
+                    </div>
+                </div>
+
+                <!-- World Tours -->
+                <div class="milestone-card scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="milestone-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="milestone-title">WORLD TOURS</div>
+                    <div class="milestone-description">
+                        Commanding sold-out venues across all continents. From Lagos to Los Angeles, Tokyo to Toronto—the world dances to Davido's rhythm.
+                    </div>
+                </div>
+
+                <!-- Cultural Influence -->
+                <div class="milestone-card scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="milestone-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="milestone-title">ELITE TASTEMAKER</div>
+                    <div class="milestone-description">
+                        Fashion weeks, luxury brands, and cultural institutions recognize Davido's influence. A trendsetter defining global lifestyle and aesthetics.
+                    </div>
+                </div>
+
+                <!-- Streaming Records -->
+                <div class="milestone-card scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="milestone-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="milestone-title">STREAMING DOMINANCE</div>
+                    <div class="milestone-description">
+                        Multiple Spotify Billion-Stream Club entries. YouTube records. Apple Music charts. The undisputed streaming king of African music.
+                    </div>
+                </div>
+
+                <!-- Collaborations -->
+                <div class="milestone-card scroll-animate" style="animation-delay: 0.5s;">
+                    <div class="milestone-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="milestone-title">GLOBAL COLLABORATIONS</div>
+                    <div class="milestone-description">
+                        Featured on tracks with international superstars. Lifting others while expanding the universe of Afrobeats to billions worldwide.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-divider"></div>
+            <h2 class="section-title">ACCLAIMED AWARDS & HONORS</h2>
+            <p class="section-subtitle">Global Recognition of Excellence</p>
+
+            <div class="awards-grid">
+                <div class="award-card scroll-animate">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="award-name">BET AWARDS</div>
+                    <div class="award-detail">Best International Act</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="award-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="award-name">MTV EMA</div>
+                    <div class="award-detail">Best African Act</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="award-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="award-name">MAMA AWARDS</div>
+                    <div class="award-detail">Best International African Artist</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="award-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="award-name">MOBO AWARDS</div>
+                    <div class="award-detail">Best African Act</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="award-icon">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <div class="award-name">GRAMMY NOMINATIONS</div>
+                    <div class="award-detail">Best Global Music Album</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.5s;">
+                    <div class="award-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="award-name">IVOR NOVELLO</div>
+                    <div class="award-detail">International Song Achievement</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.6s;">
+                    <div class="award-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="award-name">AFRIMMA</div>
+                    <div class="award-detail">Album of the Year</div>
+                </div>
+
+                <div class="award-card scroll-animate" style="animation-delay: 0.7s;">
+                    <div class="award-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="award-name">HEADIES</div>
+                    <div class="award-detail">Artiste of the Year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-black">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-divider"></div>
+            <h2 class="section-title">BOOKING & INQUIRIES</h2>
+            <p class="section-subtitle">Connect With Davido's Management Team</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-60 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">MANAGEMENT</h3>
+                    <p class="text-gray-400 mb-2"><span class="gold-accent">Email:</span> management@dmw.com</p>
+                    <p class="text-gray-400 mb-2"><span class="gold-accent">Phone:</span> +234 (0) 123 456 7890</p>
+                    <p class="text-gray-400"><span class="gold-accent">Address:</span> DMW Headquarters, Lagos, Nigeria</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-6">BOOKING AGENTS</h3>
+                    <p class="text-gray-400 mb-2"><span class="gold-accent">Touring:</span> tours@dmw.com</p>
+                    <p class="text-gray-400 mb-2"><span class="gold-accent">Features:</span> features@dmw.com</p>
+                    <p class="text-gray-400"><span class="gold-accent">Collaborations:</span> collab@dmw.com</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">NAME</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">SUBJECT</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full">SEND INQUIRY</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="max-w-6xl mx-auto">
+            <div class="footer-content">
+                <!-- Streaming Services -->
+                <div class="footer-section">
+                    <h3>STREAMING</h3>
+                    <a href="https://open.spotify.com" target="_blank">
+                        <i class="fas fa-music"></i> Spotify
+                    </a>
+                    <a href="https://music.apple.com" target="_blank">
+                        <i class="fas fa-apple"></i> Apple Music
+                    </a>
+                    <a href="https://youtube.com" target="_blank">
+                        <i class="fas fa-youtube"></i> YouTube Music
+                    </a>
+                    <a href="https://soundcloud.com" target="_blank">
+                        <i class="fas fa-cloud"></i> SoundCloud
+                    </a>
+                </div>
+
+                <!-- Social Media -->
+                <div class="footer-section">
+                    <h3>FOLLOW</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-icon">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>QUICK LINKS</h3>
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#discography">Music</a>
+                    <a href="#awards">Awards</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <!-- DMW -->
+                <div class="footer-section">
+                    <h3>DMW LABEL</h3>
+                    <p>Davido Music Worldwide</p>
+                    <p>Est. 2016</p>
+                    <a href="mailto:info@dmw.com">info@dmw.com</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Davido Music Worldwide. All rights reserved. | Crafted with excellence</p>
+                <p style="margin-top: 10px; font-size: 0.85rem;">
+                    "We Rise by Lifting Others" • Global Icon • 001
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll animate elements
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter Animation
+        function animateCounter(id, target, duration = 2000) {
+            const element = document.getElementById(id);
+            const start = 0;
+            const startTime = Date.now();
+
+            const animate = () => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            };
+
+            animate();
+        }
+
+        // Initialize counters on page load
+        window.addEventListener('load', () => {
+            animateCounter('counter1', 2000000000);
+            animateCounter('counter2', 1000000000);
+            animateCounter('counter3', 30);
+        });
+
+        // Scroll to Section
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! Our management team will get back to you shortly.');
+            document.getElementById('contactForm').reset();
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', () => {
+            const navLinks = document.querySelector('nav > div:last-child');
+            navLinks.classList.toggle('hidden');
+        });
+
+        // Active Navigation Link
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-gray-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-300');
+                    link.classList.add('text-white');
+                }
+            });
+        });
+
+        // Prevent page reload on form submission demo
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Simulate form submission
+                    const formData = new FormData(contactForm);
+                    console.log('Form submitted:', Object.fromEntries(formData));
+                    alert('✓ Thank you for reaching out! We\'ll be in touch within 24 hours.');
+                    contactForm.reset();
+                });
+            }
+        });
+
+        // Add subtle parallax effect on hero section
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrollPosition = window.scrollY;
+            hero.style.backgroundPosition = `0 ${scrollPosition * 0.5}px`;
+        });
+    </script>
+</body>
+</html>
